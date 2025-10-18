@@ -3,6 +3,10 @@ setlocal
 
 REM Configure and build cmake project with Ninja
 cmake --workflow --preset default
+if ERRORLEVEL 1 (
+    echo [ERROR] CMake configuration/build failed with exit code %ERRORLEVEL%.
+    goto :end
+)
 
 cd build/default
 
