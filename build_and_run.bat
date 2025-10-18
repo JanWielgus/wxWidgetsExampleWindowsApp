@@ -1,29 +1,10 @@
 @echo off
 setlocal
 
-REM Create build directory next to repository folder.
-REM This allow to clean the git repo without the need to rebuild the app.
-REM You can skip this to create build folder inside the repository.
-cd ..
+REM Configure and build cmake project with Ninja
+cmake --workflow --preset default
 
-if not exist build_wxApp (
-    mkdir build_wxApp
-)
-cd build_wxApp
-
-REM Configure cmake project with Ninja
-cmake %~dp0 -G "Ninja"
-if errorlevel 1 (
-    echo [ERROR] CMake configuration failed!
-    exit /b 1
-)
-
-REM Build project
-cmake --build .
-if errorlevel 1 (
-    echo [ERROR] Build failed!
-    exit /b 1
-)
+cd build/default
 
 REM Run first exe file
 for %%f in (*.exe) do (

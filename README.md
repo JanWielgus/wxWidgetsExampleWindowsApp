@@ -5,7 +5,7 @@ Example, ready to use wxWidgets Windows application build by cmake
 
 You have to install some compiler, that cmake can find to build this application.
 
-I have installed the MinGW via msys2 on Windows (https://www.msys2.org/). On Linux it would be easier.
+I have installed the MinGW (GNU 15.2.0) via msys2 on Windows (https://www.msys2.org/). On Linux it would be easier.
 
 # How to use
 
